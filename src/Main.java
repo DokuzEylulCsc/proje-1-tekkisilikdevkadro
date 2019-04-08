@@ -57,11 +57,29 @@ public class Main {
          yeniden rezervasyon yapmak isteyip istemediğini sormalı ve rezervasyon yapmak isterse bir arayüze yönlendirmemiz gerek.
           Bunun için menu isimli bir değişken tutarak arayüz oluşturuyoruz... */
         while (menu != 0) {
-
-
-            System.out.println("Oda numarasına göre rezervasyon yapmak için (1)'e Oda tipine göre " +
-                    "rezervasyon yapmak için (2)'ye Girilen tarihler arasındaki müsait odaları görmek için (3)'e basınız");
+            System.out.println(" ");
+            System.out.println("---------------------------------------------------------------- ");
+            System.out.println("Oda numarasına göre rezervasyon yapmak için (1)'e ");
+            System.out.println(" ");
+            System.out.println("Oda tipine göre rezervasyon yapmak için (2)'ye");
+            System.out.println(" ");
+            System.out.println("Girilen tarihler arasındaki müsait odaları görmek için (3)'e");
+            System.out.println(" ");
+            System.out.println("Rezervasyon iptali için (4)'e basınız...");
+            System.out.println("---------------------------------------------------------------- ");
             x = sc.nextInt();
+
+            if(x==4){
+                System.out.println("Rezervasyon iptalini yapcağınız oda numarasını giriniz...");
+                int no = sc.nextInt();
+                System.out.println("Rezervasyon başlangıç tarihini (gg/aa/yyyy) biçiminde giriniz...");
+                String tarih1 = sc.next();
+                System.out.println("Rezervasyon bitiş tarihini (gg/aa/yyyy) biçiminde giriniz...");
+                String tarih2 = sc.next();
+                rezervasyonmenejeri.rezervasyonIptal(no,format.parse(tarih1),format.parse(tarih2));
+                System.out.println("Rezervasyonunuz iptal edilmiştir...");
+            }
+
             if(x==3){
                 System.out.println("Rezervasyon başlangıç tarihini (gg/aa/yyyy) biçiminde giriniz...");
                 String tarih1 = sc.next();
@@ -140,8 +158,8 @@ public class Main {
                 }
 
             }
-            if(x!= 1 && x!= 2 && x!=3){
-                System.out.println("Hatalı giriş yaptınız...Lütfen 1, 2 veya 3'ü tuşlayın");
+            if(x!= 1 && x!= 2 && x!=3 && x!=4){
+                System.out.println("Hatalı giriş yaptınız...Lütfen 1, 2, 3 veya 4'ü tuşlayın");
             }
         }
     }
